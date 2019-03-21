@@ -1,0 +1,20 @@
+{
+  "name": "redux-catastrophic",
+  "version": "0.0.1",
+  "description": "Utility functions to help alleviate redux boilerplate.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "redux",
+    "cata",
+    "action",
+    "action-creator"
+  ],
+  "author": {
+    "name": "Matthew Willhite",
+    "email": "dev@arroyo.llc"
+  },
+  "license": "ISC"
+}
