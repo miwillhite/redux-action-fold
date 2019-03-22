@@ -1,5 +1,5 @@
 {
-  "name": "redux-catastrophic",
+  "name": "redux-action-fold",
   "version": "0.0.1",
   "description": "Utility functions to help alleviate redux boilerplate.",
   "main": "index.js",
@@ -8,9 +8,9 @@
   },
   "keywords": [
     "redux",
-    "cata",
     "action",
-    "action-creator"
+    "action-creator",
+    "fold"
   ],
   "author": {
     "name": "Matthew Willhite",

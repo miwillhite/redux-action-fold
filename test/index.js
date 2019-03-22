@@ -1,50 +1,39 @@
 const assert = require ('assert');
-const C = require ('..');
+const F = require ('..');
 
-// Test C.toMap
+// Subject
+const Action =
+  F.unfold (['A', 'B']);
 
-// Generates a StrMap String from [String]
-assert.deepEqual 
-  ( C.toMap (['A', 'B'])
-  , { A: 'A', B: 'B' }
-  );
+
+// Test F.unfold
+
+// Generates a StrMap(Function a) from [String]
+assert.equal ('function', typeof Action.A);
+assert.equal (1, Action.A.length);
+
 // Handles empty values
-assert.deepEqual 
-  ( C.toMap ([])
-  , {}
-  );
+assert.deepEqual (F.unfold ([]), {});
 
 
-// Test C.action
-
-// Generates a redux action
-assert.deepEqual 
-  ( C.action ('A') ({ x: 1 })
-  , { type: 'A', payload: { x: 1 } }
-  );
-// Generates a nullary action (empty payload)
-assert.deepEqual
-  ( C.action ('A') ()
-  , { type: 'A', payload: {}}
-  );
-
-
-// Test C.cata
+// Test F.fold
 
 // Returns the value for the given branch
 assert.strictEqual
   ( true
-  , C.cata ({ A: () => true
-          , B: x => x
-          }) (C.action ('A') ())
+  , F.fold ({ A: () => true
+            , B: x => x
+            })
+           (Action.A ())
   );
 // Receives the payload value
 assert.strictEqual
   ( 'foo'
-  , C.cata ({ A: () => true
-          , B: x => x
-          }) (C.action ('B') ('foo'))
+  , F.fold ({ A: () => true
+            , B: x => x
+            })
+           (Action.B ('foo'))
   );
 // Throws if there is no matching cata
 assert.throws
-  (() => C.cata ({}) (C.action ('A') ()));
+  (() => F.fold ({}) (Action.A ()));
