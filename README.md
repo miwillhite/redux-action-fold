@@ -31,5 +31,5 @@ const c = { type: 'Spawn', payload: null };
 // :: State
 reducer ('Player 1: ') (a); //=> 'Player 1: Go to 1:10'
 reducer ('Player 2: ') (b); //=> 'Player 2: ☠︎'
-reducer ('Player 3: ') (c); //=> Throw: 'Spawn' action not handled in cata
+reducer ('Player 3: ') (c); //=> Throw: 'Spawn' action not handled in fold.
 ```
