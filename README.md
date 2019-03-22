@@ -6,14 +6,14 @@ const F = require ('redux-action-fold');
 
 // :: State = String
 
-// :: StrMap TypeLabel
+// :: StrMap (a => Action a)
 const Action = 
   F.unfold ([ 'Move'
             , 'Die'
             , 'Spawn'
             ]);
 
-// :: State -> Action
+// :: State -> Action -> State
 const reducer = state =>
   F.fold ({ Move: ({ x, y }) => S.concat (state) (`Go to ${x}:${y}`)
           , Die: () => S.concat (state) ('☠︎')
