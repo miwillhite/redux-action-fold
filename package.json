@@ -1,6 +1,6 @@
 {
   "name": "redux-action-fold",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Utility functions to help alleviate redux boilerplate.",
   "main": "index.js",
   "scripts": {
